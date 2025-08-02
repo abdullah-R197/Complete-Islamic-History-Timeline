@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Islamic History Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        
+        .arabic-font { font-family: 'Amiri', serif; }
+        .timeline-line { 
+            background: linear-gradient(180deg, #059669 0%, #10b981 50%, #34d399 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .islamic-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
+        }
+        .expand-animation {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .timeline-dot {
+            background: linear-gradient(135deg, #059669, #10b981);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 to-teal-50 min-h-screen islamic-pattern">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-full mb-4">
+                <span class="text-2xl text-white">🕋</span>
+            </div>
+            <h1 class="text-4xl font-bold text-gray-800 mb-2 arabic-font">Complete Islamic History Timeline</h1>
+            <p class="text-lg text-gray-600">From Prophet Muhammad (S.A.W.) to the End of the Ottoman Caliphate (570-1924 CE)</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Timeline Container -->
+        <div class="relative">
+            <!-- Timeline Line -->
+            <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+
+            <!-- Timeline Events -->
+            <div class="space-y-8">
+                <!-- Event 1: Birth of Prophet Muhammad (S.A.W.) -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event1')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium mb-2">570 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Birth of Prophet Muhammad (S.A.W.)</h3>
+                                    <p class="text-gray-600 mt-1">The birth of the final messenger in Makkah</p>
+                                </div>
+                                <div class="text-2xl">🌟</div>
+                            </div>
+                            
+                            <div id="event1" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Key Details:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Born in Makkah, Arabian Peninsula</li>
+                                                <li>• Member of the noble Quraysh tribe</li>
+                                                <li>• Father: Abdullah (died before birth)</li>
+                                                <li>• Mother: Aminah bint Wahb</li>
+                                                <li>• Known as "Al-Amin" (The Trustworthy)</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Historical Context:</h4>
+                                            <p class="text-gray-600 text-sm">Born during the "Year of the Elephant" when Abraha's army attempted to destroy the Kaaba. Arabia was a land of tribal conflicts and idol worship, setting the stage for the final revelation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2: First Revelation -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event2')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-2">610 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">First Revelation</h3>
+                                    <p class="text-gray-600 mt-1">Angel Jibreel (A.S.) appears in Cave Hira</p>
+                                </div>
+                                <div class="text-2xl">📖</div>
+                            </div>
+                            
+                            <div id="event2" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                        <p class="text-blue-800 arabic-font text-lg text-center">"اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ"</p>
+                                        <p class="text-blue-700 text-center mt-2 italic">"Read in the name of your Lord who created"</p>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The Event:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Location: Cave Hira, Mount Jabal al-Nour</li>
+                                                <li>• First verses of Surah Al-Alaq revealed</li>
+                                                <li>• Beginning of 23-year prophetic mission</li>
+                                                <li>• Support from Khadijah (R.A.)</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Significance:</h4>
+                                            <p class="text-gray-600 text-sm">This marked the beginning of the final revelation to humanity. The emphasis on "Read" highlighted the importance of knowledge and literacy in Islam.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3: Hijrah -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event3')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mb-2">622 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Hijrah (Migration to Madinah)</h3>
+                                    <p class="text-gray-600 mt-1">Foundation of the first Islamic state</p>
+                                </div>
+                                <div class="text-2xl">🏛️</div>
+                            </div>
+                            
+                            <div id="event3" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The Journey:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Migration from Makkah to Yathrib (Madinah)</li>
+                                                <li>• Accompanied by Abu Bakr (R.A.)</li>
+                                                <li>• Beginning of Islamic calendar (1 AH)</li>
+                                                <li>• Establishment of Muslim community</li>
+                                                <li>• Constitution of Madinah created</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Impact:</h4>
+                                            <p class="text-gray-600 text-sm">The Hijrah transformed Islam from a persecuted minority to a thriving community. It established principles of religious freedom, social justice, and governance that would influence civilizations for centuries.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4: Prophet's Passing -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event4')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium mb-2">632 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Prophet Muhammad's (S.A.W.) Passing</h3>
+                                    <p class="text-gray-600 mt-1">Completion of the message and succession</p>
+                                </div>
+                                <div class="text-2xl">🤲</div>
+                            </div>
+                            
+                            <div id="event4" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="bg-amber-50 p-4 rounded-lg mb-4">
+                                        <p class="text-amber-800 text-center italic">"Today I have perfected your religion for you, completed My favor upon you, and have chosen for you Islam as your religion."</p>
+                                        <p class="text-amber-700 text-center mt-1 text-sm">- Quran 5:3 (Final revelation)</p>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Final Period:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Farewell Pilgrimage (Hajjat al-Wada)</li>
+                                                <li>• Final sermon at Mount Arafat</li>
+                                                <li>• Completion of Quranic revelation</li>
+                                                <li>• Succession to Abu Bakr (R.A.)</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Legacy:</h4>
+                                            <p class="text-gray-600 text-sm">The Prophet's passing marked the end of divine revelation but the beginning of Islamic expansion. His teachings, preserved in the Quran and Sunnah, would guide the Muslim community through centuries of growth.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5: Umayyad Caliphate -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event5')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium mb-2">661 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Beginning of Umayyad Caliphate</h3>
+                                    <p class="text-gray-600 mt-1">Political expansion and cultural integration</p>
+                                </div>
+                                <div class="text-2xl">🏰</div>
+                            </div>
+                            
+                            <div id="event5" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Capital established in Damascus</li>
+                                                <li>• Expansion into Spain and Central Asia</li>
+                                                <li>• Arabic as administrative language</li>
+                                                <li>• Dome of the Rock constructed</li>
+                                                <li>• Development of Islamic art and architecture</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Achievements:</h4>
+                                            <p class="text-gray-600 text-sm">The Umayyads created the largest empire of their time, stretching from Spain to India. They established efficient administration, promoted trade, and began the synthesis of Islamic and local cultures.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6: Abbasid Revolution -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event6')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium mb-2">750 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Abbasid Revolution</h3>
+                                    <p class="text-gray-600 mt-1">Beginning of the Islamic Golden Age</p>
+                                </div>
+                                <div class="text-2xl">📚</div>
+                            </div>
+                            
+                            <div id="event6" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Major Changes:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Capital moved to Baghdad</li>
+                                                <li>• House of Wisdom established</li>
+                                                <li>• Translation movement begins</li>
+                                                <li>• Emphasis on learning and scholarship</li>
+                                                <li>• Integration of Persian administrative traditions</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Golden Age:</h4>
+                                            <p class="text-gray-600 text-sm">The Abbasids ushered in an era of unprecedented intellectual achievement. Baghdad became the center of learning, where scholars from different cultures collaborated to advance science, philosophy, and literature.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 7: Fall of Baghdad -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event7')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1258 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Fall of Baghdad</h3>
+                                    <p class="text-gray-600 mt-1">End of the classical Islamic period</p>
+                                </div>
+                                <div class="text-2xl">⚔️</div>
+                            </div>
+                            
+                            <div id="event7" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The Mongol Invasion:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Led by Hulagu Khan</li>
+                                                <li>• Destruction of the House of Wisdom</li>
+                                                <li>• End of Abbasid Caliphate in Baghdad</li>
+                                                <li>• Massive loss of manuscripts and knowledge</li>
+                                                <li>• Decline of Baghdad as learning center</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Aftermath:</h4>
+                                            <p class="text-gray-600 text-sm">While devastating, this event marked a transition rather than an end. Islamic civilization continued to flourish in other regions like Al-Andalus, the Ottoman Empire, and the Indian subcontinent.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 8: Ottoman Caliphate Established -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event8')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1517 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Selim I Assumes Title of Caliph</h3>
+                                    <p class="text-gray-600 mt-1">Ottoman Sultan becomes Custodian of the Two Holy Mosques</p>
+                                </div>
+                                <div class="text-2xl">👑</div>
+                            </div>
+                            
+                            <div id="event8" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Key Details:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Defeated Mamluk Sultanate in Egypt</li>
+                                                <li>• Conquered Cairo and gained control of Makkah and Madinah</li>
+                                                <li>• Received the sacred relics of Prophet Muhammad (S.A.W.)</li>
+                                                <li>• Became protector of pilgrimage routes</li>
+                                                <li>• United spiritual and temporal authority</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Historical Significance:</h4>
+                                            <p class="text-gray-600 text-sm">This marked the beginning of the Ottoman Caliphate, the last widely recognized Islamic Caliphate. The Ottomans now held both political power and spiritual leadership over the Muslim world, a responsibility that would last over 400 years.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2: Battle of Vienna -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event9')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1683 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Battle of Vienna</h3>
+                                    <p class="text-gray-600 mt-1">Major defeat marking the beginning of Ottoman decline</p>
+                                </div>
+                                <div class="text-2xl">⚔️</div>
+                            </div>
+                            
+                            <div id="event9" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The Battle:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Led by Grand Vizier Kara Mustafa Pasha</li>
+                                                <li>• Siege of Vienna lasted 2 months</li>
+                                                <li>• Defeated by Holy League (Austria, Poland, Venice)</li>
+                                                <li>• King Jan Sobieski of Poland led the relief force</li>
+                                                <li>• Ottoman army forced to retreat</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Consequences:</h4>
+                                            <p class="text-gray-600 text-sm">This defeat marked the end of Ottoman expansion into Europe and the beginning of their gradual retreat. It signaled the shift in military balance between the Ottoman Empire and European powers, leading to centuries of territorial losses.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3: Napoleon's Egyptian Campaign -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event10')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1798 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Napoleon Invades Egypt</h3>
+                                    <p class="text-gray-600 mt-1">European colonial powers challenge Ottoman authority</p>
+                                </div>
+                                <div class="text-2xl">🏛️</div>
+                            </div>
+                            
+                            <div id="event10" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The Campaign:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• French forces landed in Alexandria</li>
+                                                <li>• Battle of the Pyramids - French victory</li>
+                                                <li>• Mamluk forces defeated</li>
+                                                <li>• British naval victory at Battle of the Nile</li>
+                                                <li>• French eventually withdrew in 1801</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Impact on Caliphate:</h4>
+                                            <p class="text-gray-600 text-sm">This invasion exposed Ottoman military weakness and marked the beginning of European colonial intervention in Muslim lands. It demonstrated that the Caliph could no longer effectively protect all Muslim territories from foreign invasion.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4: Tanzimat Reforms -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event11')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1839-1876 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Tanzimat Reforms</h3>
+                                    <p class="text-gray-600 mt-1">Modernizing reforms to strengthen the empire</p>
+                                </div>
+                                <div class="text-2xl">📜</div>
+                            </div>
+                            
+                            <div id="event11" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Key Reforms:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Equal rights for all Ottoman subjects</li>
+                                                <li>• Modern legal system introduced</li>
+                                                <li>• Military modernization programs</li>
+                                                <li>• Educational reforms and new schools</li>
+                                                <li>• Administrative centralization</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Challenges:</h4>
+                                            <p class="text-gray-600 text-sm">While aimed at strengthening the empire, these reforms created tension between traditional Islamic governance and Western-style modernization. They also increased nationalist sentiments among various ethnic groups within the empire.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5: Young Turk Revolution -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event12')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1908 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Young Turk Revolution</h3>
+                                    <p class="text-gray-600 mt-1">Constitutional government restored, nationalism rises</p>
+                                </div>
+                                <div class="text-2xl">🏛️</div>
+                            </div>
+                            
+                            <div id="event12" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The Revolution:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Committee of Union and Progress (CUP) led revolt</li>
+                                                <li>• Sultan Abdul Hamid II forced to restore constitution</li>
+                                                <li>• Parliament reconvened after 30 years</li>
+                                                <li>• Emphasis on Turkish nationalism</li>
+                                                <li>• Secularization policies increased</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Impact on Caliphate:</h4>
+                                            <p class="text-gray-600 text-sm">The Young Turks promoted Turkish nationalism over Islamic unity, weakening the Caliph's role as leader of all Muslims. This shift contributed to Arab and other ethnic groups seeking independence from Ottoman rule.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6: World War I -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event13')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1914-1918 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Ottoman Empire Enters WWI</h3>
+                                    <p class="text-gray-600 mt-1">Disastrous alliance leads to empire's downfall</p>
+                                </div>
+                                <div class="text-2xl">💥</div>
+                            </div>
+                            
+                            <div id="event13" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Major Battles:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Gallipoli Campaign (1915) - Ottoman victory</li>
+                                                <li>• Arab Revolt (1916-1918) - British-supported uprising</li>
+                                                <li>• Battle of Megiddo (1918) - decisive defeat</li>
+                                                <li>• Caucasus Campaign - fought against Russia</li>
+                                                <li>• Siege of Kut (1916) - Ottoman victory</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Consequences:</h4>
+                                            <p class="text-gray-600 text-sm">Despite some victories like Gallipoli, the war devastated the Ottoman Empire. The Arab Revolt, supported by Britain, saw Arab leaders rebel against the Caliph in exchange for promises of independence, fracturing Muslim unity.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 7: Arab Revolt -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event14')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1916 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Arab Revolt Begins</h3>
+                                    <p class="text-gray-600 mt-1">Arabs rebel against Ottoman Caliphate with British support</p>
+                                </div>
+                                <div class="text-2xl">🏜️</div>
+                            </div>
+                            
+                            <div id="event14" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Key Leaders & Events:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Sharif Hussein of Makkah declared revolt</li>
+                                                <li>• T.E. Lawrence (Lawrence of Arabia) advised Arabs</li>
+                                                <li>• Capture of Aqaba (1917)</li>
+                                                <li>• Damascus liberated (1918)</li>
+                                                <li>• British promised Arab independence</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Impact on Caliphate:</h4>
+                                            <p class="text-gray-600 text-sm">The revolt was devastating for the Caliphate's legitimacy. Arabs, who had been part of the Islamic community since its beginning, rebelled against their Caliph. This broke the unity of the Muslim world and weakened the Ottoman claim to spiritual leadership.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 8: Abolition of Sultanate -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event15')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1922 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Abolition of Ottoman Sultanate</h3>
+                                    <p class="text-gray-600 mt-1">Sultan Mehmed VI departs, Turkey becomes republic</p>
+                                </div>
+                                <div class="text-2xl">🚢</div>
+                            </div>
+                            
+                            <div id="event15" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">The End of Sultanate:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Turkish Grand National Assembly voted to abolish sultanate</li>
+                                                <li>• Sultan Mehmed VI fled Istanbul on British warship</li>
+                                                <li>• Mustafa Kemal (Atatürk) became president</li>
+                                                <li>• Separation of political and religious authority</li>
+                                                <li>• Caliphate temporarily preserved</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Significance:</h4>
+                                            <p class="text-gray-600 text-sm">This marked the end of over 600 years of Ottoman political rule. However, the Caliphate was initially preserved as a separate spiritual institution under Abdulmejid II, creating a unique separation of temporal and religious authority.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 9: Abolition of Caliphate -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event16')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-black text-white px-3 py-1 rounded-full text-sm font-medium mb-2">March 3, 1924</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Abolition of the Caliphate</h3>
+                                    <p class="text-gray-600 mt-1">End of the last Islamic Caliphate</p>
+                                </div>
+                                <div class="text-2xl">💔</div>
+                            </div>
+                            
+                            <div id="event16" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="bg-red-50 p-4 rounded-lg mb-4">
+                                        <p class="text-red-800 text-center font-semibold">"The institution of the Caliphate is abolished. The Caliph is deposed and expelled from Turkish territory."</p>
+                                        <p class="text-red-700 text-center mt-1 text-sm">- Turkish Grand National Assembly, March 3, 1924</p>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Final Act:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Caliph Abdulmejid II deposed and exiled</li>
+                                                <li>• All members of Ottoman dynasty expelled</li>
+                                                <li>• Religious schools and courts closed</li>
+                                                <li>• Islamic law replaced by secular law</li>
+                                                <li>• End of 1,292 years of continuous Caliphate</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Global Impact:</h4>
+                                            <p class="text-gray-600 text-sm">The abolition shocked Muslims worldwide. The Khilafat Movement in India, led by the Ali brothers, had tried to save the Caliphate but failed. This event left the Muslim world without a unified spiritual leader for the first time since the death of Prophet Muhammad (S.A.W.).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 10: Khilafat Movement -->
+                <div class="timeline-event relative">
+                    <div class="absolute left-6 w-5 h-5 timeline-dot rounded-full border-4 border-white"></div>
+                    <div class="ml-20">
+                        <div class="bg-white rounded-xl p-6 card-shadow hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="toggleCard('event17')">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mb-2">1919-1924 CE</span>
+                                    <h3 class="text-xl font-bold text-gray-800 arabic-font">Khilafat Movement in India</h3>
+                                    <p class="text-gray-600 mt-1">Indian Muslims' struggle to preserve the Caliphate</p>
+                                </div>
+                                <div class="text-2xl">🇮🇳</div>
+                            </div>
+                            
+                            <div id="event17" class="expand-animation max-h-0 overflow-hidden">
+                                <div class="mt-6 pt-6 border-t border-gray-100">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Key Leaders:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Maulana Mohammad Ali Jauhar</li>
+                                                <li>• Maulana Shaukat Ali</li>
+                                                <li>• Maulana Abul Kalam Azad</li>
+                                                <li>• Dr. Mukhtar Ahmed Ansari</li>
+                                                <li>• Support from Mahatma Gandhi</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">Movement Activities:</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• Mass protests and demonstrations</li>
+                                                <li>• Boycott of British goods</li>
+                                                <li>• Non-cooperation with British government</li>
+                                                <li>• International conferences and appeals</li>
+                                                <li>• Alliance with Indian independence movement</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h4 class="font-semibold text-gray-800 mb-2">Legacy:</h4>
+                                        <p class="text-gray-600 text-sm">Though unsuccessful in preserving the Caliphate, the movement demonstrated the deep emotional connection Muslims worldwide felt to the institution. It also strengthened Hindu-Muslim unity in the Indian independence struggle and highlighted the global nature of Muslim solidarity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 pt-8 border-t border-gray-200">
+            <p class="text-gray-600 mb-2">Complete Islamic History Timeline (570-1924 CE)</p>
+            <p class="text-sm text-gray-500">From Prophet Muhammad (S.A.W.) to the end of the Ottoman Caliphate - Click on any event to explore detailed information</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(eventId) {
+            const card = document.getElementById(eventId);
+            const isExpanded = card.style.maxHeight && card.style.maxHeight !== '0px';
+            
+            // Close all other cards
+            const allCards = document.querySelectorAll('[id^="event"]');
+            allCards.forEach(otherCard => {
+                if (otherCard.id !== eventId) {
+                    otherCard.style.maxHeight = '0px';
+                }
+            });
+            
+            // Toggle current card
+            if (isExpanded) {
+                card.style.maxHeight = '0px';
+            } else {
+                card.style.maxHeight = card.scrollHeight + 'px';
+            }
+        }
+
+        // Add smooth scroll behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineEvents = document.querySelectorAll('.timeline-event');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            timelineEvents.forEach(event => {
+                event.style.opacity = '0';
+                event.style.transform = 'translateY(20px)';
+                event.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(event);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'968f61dd149a0645',t:'MTc1NDE1NjY1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
